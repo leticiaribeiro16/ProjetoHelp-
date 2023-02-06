@@ -39,12 +39,12 @@
           <td>{{d.vagas_vespertino}}</td>
           <td>{{d.vagas_noturno}}</td>
           <td>{{d.vagas_flexivel}}</td>
-          <td>{{d.modalidade}}</td>
+          <td>{{d.bolsas}}</td>
         {% if current_user.admin %}
-          <td>{{d.validacao}}</td>
+          <td>{{d.modalidade}}</td>
         {% endif %}
         {% if current_user.admin %}
-          <td>{{d.bolsas}}</td>
+          <td>{{d.validacao}}</td>
           <td>
             <a href="/demanda/update/{{d.id}}">Editar</a>
 				    <a href="/demanda/delete/{{d.id}}">Excluir</a>

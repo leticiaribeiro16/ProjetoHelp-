@@ -10,7 +10,8 @@ bp_demanda = Blueprint("demanda", __name__, template_folder="templates")
 @bp_demanda.route('/create', methods=['GET', 'POST'])
 def create():
   if request.method=='GET':
-    return render_template('demanda_create.html')
+    demanda = Demanda.query.all()
+    return render_template('demanda_create.html', demanda=demanda)
 
   if request.method=='POST':
     materia = request.form.get('materia')
@@ -20,13 +21,13 @@ def create():
     orientadores = request.form.get('orientadores')
     id_edital = request.form.get('id_edital')
     modalidade = request.form.get('modalidade')
-    validacao = request.form.get('validacao')
     vagas_matutino = request.form.get('vagas_matutino')
     vagas_vespertino = request.form.get('vagas_vespertino')
     vagas_noturno = request.form.get('vagas_noturno')
     vagas_flexivel = request.form.get('vagas_flexivel')
+    validacao = request.form.get('validacao')
     
-    demanda = Demanda(materia, observacoes, requisitos, conteudo, orientadores, id_edital, modalidade, validacao, vagas_matutino, vagas_vespertino, vagas_noturno, vagas_flexivel, 0)
+    demanda = Demanda(materia, observacoes, requisitos, conteudo, orientadores, id_edital, modalidade, False, vagas_matutino, vagas_vespertino, vagas_noturno, vagas_flexivel, 0)
     db.session.add(demanda) 
     db.session.commit()
     return redirect('/demanda/recovery')
@@ -50,6 +51,10 @@ def update(id):
     return render_template('demanda_update.html', demanda=demanda)
 
   if request.method=='POST':
+    if request.form.get('validacao') == 'True':
+      validacao = True
+    else:
+      validacao = False
     demanda = Demanda.query.get(id)
     demanda.materia = request.form.get('materia')
     demanda.observacoes = request.form.get('observacoes')
@@ -58,13 +63,13 @@ def update(id):
     demanda.orientadores = request.form.get('orientadores')
     demanda.id_edital = request.form.get('id_edital')  
     demanda.modalidade = request.form.get('modalidade')
-    demanda.validacao = request.form.get('validacao')
+    demanda.validacao = validacao
     demanda.vagas_matutino = request.form.get('vagas_matutino')
     demanda.vagas_vespertino = request.form.get('vagas_vespertino')
     demanda.vagas_noturno = request.form.get('vagas_noturno')
     demanda.vagas_flexivel = request.form.get('vagas_flexivel')
     demanda.bolsas = request.form.get('bolsas')
-
+  
   db.session.add(demanda) 
   db.session.commit()
   return redirect(url_for('.recovery', id=id))

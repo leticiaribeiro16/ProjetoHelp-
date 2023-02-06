@@ -22,9 +22,6 @@
       Vagas Vespertino: <input type="number" name='vagas_vespertino' required/><br />
       Vagas Noturno: <input type="number" name='vagas_noturno' required /><br />
       Vagas Flexível: <input type="number" name='vagas_flexivel' required/><br />
-    {% if current_user.admin %}
-      Bolsas: <input type="number" name='bolsas' /><br />
-    {% endif %}
       <input type="submit" name="enviar">
     </form> 
 {% endblock %}

@@ -40,6 +40,11 @@
           <a class="nav-link" href="/inscricao/recovery">Inscrições</a>
         </li>
         {% endif %}
+        {% if current_user.professor %}
+        <li class="nav-item">
+          <a class="nav-link" href="/aprovacao/recovery">Aprovação</a>
+        </li>
+        {% endif %}
       </ul>
       <form class="d-flex" role="search">
         <a href="{{url_for('usuarios.logoff')}}" class="btn btn-danger" id="button-sair">Sair ( {{current_user.nome}} )</a>

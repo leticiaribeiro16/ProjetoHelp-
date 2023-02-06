@@ -49,7 +49,7 @@ class Demanda(db.Model):
   conteudo = db.Column(db.Text)
   orientadores = db.Column(db.Text)
   id_edital = db.Column(db.Integer, db.ForeignKey('edital.id'))
-  modalidade = db.Column(db.Float)
+  modalidade = db.Column(db.Text)
   validacao = db.Column(db.Boolean)
   vagas_matutino = db.Column(db.Float)
   vagas_vespertino = db.Column(db.Float)
