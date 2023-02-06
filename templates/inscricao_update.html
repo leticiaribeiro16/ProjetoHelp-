@@ -1,0 +1,11 @@
+{% extends 'header.html' %}
+
+{% block container %}
+<form action="/inscricao/update/{{inscricao.id}}" method="POST">
+  Matrícula: <input type="text" name="id_usuario" value="{{inscricao.id_usuario}}"><br/>
+  Edital: <input type="text" name="id_edital" value="{{inscricao.id_edital}}"><br/>
+  Turno: <input type="text" name="turno" value="{{inscricao.turno}}"><br/>
+  <input type="submit" name="Editar">
+  <input type="reset" name="Limpar">
+</form>
+{% endblock %}

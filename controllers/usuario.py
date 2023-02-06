@@ -9,8 +9,12 @@ bp_usuarios = Blueprint("usuarios", __name__, template_folder='templates')
 @bp_usuarios.route('/recovery')
 @login_required
 def recovery():
-	usuarios = Usuario.query.all()
-	return render_template('usuarios_recovery.html', usuarios = usuarios)
+  if not current_user.admin:
+    flash("Acesso não permitido")
+    return redirect('/login')
+  
+  usuarios = Usuario.query.all()
+  return render_template('usuarios_recovery.html', usuarios = usuarios)
 
 #CRIAR USUÁRIOS
 @bp_usuarios.route('/create', methods=['POST', 'GET'])
@@ -24,7 +28,7 @@ def cadastro():
     matricula = request.form.get('matricula')
     senha = request.form.get('senha')
     
-    usuario = Usuario(nome, email, matricula, senha)
+    usuario = Usuario(nome, email, matricula, senha, False, False)
     db.session.add(usuario)
     db.session.commit()
 
@@ -34,6 +38,9 @@ def cadastro():
 @bp_usuarios.route('/update/<int:id>', methods=['GET', 'POST'])
 @login_required
 def update(id):
+  if not current_user.admin:
+    flash("Acesso não permitido")
+    return redirect('/login')
     
   usuario = Usuario.query.get(id)
   if id and request.method=='GET':
@@ -44,11 +51,15 @@ def update(id):
     email = request.form.get('email')
     matricula = request.form.get('matricula')
     senha = request.form.get('senha')
+    admin = request.form.get('admin')
+    professor = request.form.get('professor')
     
     usuario.nome = nome
     usuario.email = email
     usuario.matricula = matricula
     usuario.senha = senha
+    usuario.admin = eval(admin)
+    usuario.professor = eval(professor)
 
     db.session.add(usuario) 
     db.session.commit()
@@ -58,9 +69,13 @@ def update(id):
 @bp_usuarios.route('/delete/<int:id>', methods=['GET', 'POST'])
 @login_required
 def delete(id):
+  if not current_user.admin:
+    flash("Acesso não permitido")
+    return redirect('/login')
+    
   if id==0:
     return 'É preciso definir um usuário para ser excluído'
-    return redirect(url_for('usuarios'))
+    return redirect(url_for('.recovery'))
 
   if request.method == 'GET':
     usuario = Usuario.query.get(id)

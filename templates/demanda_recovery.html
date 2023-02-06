@@ -1,0 +1,57 @@
+{% extends 'header.html' %}
+{% block container %}
+<a href="/demanda/create" class="btn btn-primary" style="background-color: #43B6DB !important">+ Adicionar Demanda</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Matéria</th>
+        <th scope="col">Observações</th>
+        <th scope="col">Requisitos</th>
+        <th scope="col">Conteúdo</th>
+        <th scope="col">Orientadores</th>
+        <th scope="col">Edital</th>
+        <th scope="col">Vagas Matutino</th>
+        <th scope="col">Vagas Vespertino</th>
+        <th scope="col">Vagas Noturno</th>
+        <th scope="col">Vagas Flexível</th>
+        {% if current_user.admin %}
+        <th scope="col">Bolsas</th>
+        {% endif %}
+        <th scope="col">Modalidade</th>
+        {% if current_user.admin %}
+        <th scope="col">Validação</th>
+        <th scope="col">Ações</th>
+        {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in demanda %}
+        <tr>
+          <th scope="row">{{d.id}}</th>
+          <td>{{d.materia}}</td>
+          <td>{{d.observacoes}}</td>
+          <td>{{d.requisitos}}</td>
+          <td>{{d.conteudo}}</td>
+          <td>{{d.orientadores}}</td>
+          <td>{{d.edital.titulo}}</td>
+          <td>{{d.vagas_matutino}}</td>
+          <td>{{d.vagas_vespertino}}</td>
+          <td>{{d.vagas_noturno}}</td>
+          <td>{{d.vagas_flexivel}}</td>
+          <td>{{d.modalidade}}</td>
+        {% if current_user.admin %}
+          <td>{{d.validacao}}</td>
+        {% endif %}
+        {% if current_user.admin %}
+          <td>{{d.bolsas}}</td>
+          <td>
+            <a href="/demanda/update/{{d.id}}">Editar</a>
+				    <a href="/demanda/delete/{{d.id}}">Excluir</a>
+          </td>
+        {% endif %}
+        </tr>
+	    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

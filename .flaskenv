@@ -1,1 +1,1 @@
-	FLASK_APP=main:app
+FLASK_APP=main:app

@@ -1,0 +1,11 @@
+{% extends 'header.html' %}
+
+{% block container %}
+<form action="/edital/update/{{edital.id}}" method="POST">
+  Título: <input type="text" name="titulo" value="{{edital.titulo}}"><br/>
+  Parágrafo de Explicação: <input type="text" name="paragrafo" value="{{edital.paragrafo}}"><br/>
+  Link do Edital: <input type="text" name="link" value="{{edital.link}}"><br/>
+  <input type="submit" name="Editar">
+  <input type="reset" name="Limpar">
+</form>
+{% endblock %}

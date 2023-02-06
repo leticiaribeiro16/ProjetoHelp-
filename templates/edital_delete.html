@@ -1,0 +1,8 @@
+{% extends 'header.html' %}
+{% block container %}
+  Você tem certeza que deseja excluir o edital {{edital.titulo}}?
+  <form method='post' action='/edital/delete/{{edital.id}}'>
+    <input type="submit" value="Sim">
+  </form>
+  <a href="/edital/recovery">Cancelar</a>
+{% endblock%}

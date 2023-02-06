@@ -1,0 +1,26 @@
+{% extends 'header.html' %}
+  {% block titulo %}
+    Demanda
+  {% endblock %}
+  {% block container %}
+    <form action="/demanda/update/{{demanda.id}}" method="POST">
+      Matéria: <input type="text" name="materia" value="{{demanda.materia}}"><br/>
+      Observações: <input type="text" name="observacoes" value="{{demanda.observacoes}}"><br/>
+      Requisitos: <input type="text" name="requisitos" value="{{demanda.requisitos}}"><br/>
+      Conteúdo: <input type="text" name="conteudo" value="{{demanda.conteudo}}"><br/>
+      Orientadores: <input type="text" name="orientadores" value="{{demanda.orientadores}}"><br/>
+      Edital: <input type="text" name="id_edital" value="{{demanda.edital.titulo}}"><br/>
+      Vagas Matutino: <input type="number" name='vagas_matutino' value="{{demanda.vagas_matutino}}"/><br />
+      Vagas Vespertino: <input type="number" name='vagas_vespertino' value="{{demanda.vagas_vespertino}}"/><br />
+      Vagas Noturno: <input type="number" name='vagas_noturno' value="{{demanda.vagas_noturno}}"/><br />
+      Vagas Flexível: <input type="number" name='vagas_flexivel' value="{{demanda.vagas_flexivel}}"/><br />
+      Bolsas: <input type="number" name='bolsas' value="{{demanda.bolsas}}"/><br />
+      Modalidade: <input type="text" name="modalidade" value="{{demanda.modalidade}}" /><br />
+      Validação:
+    <select name="validacao">
+      <option value="True" {{ 'selected' if demanda.validacao }}> Aprovado</option>
+      <option value="False" {{ 'selected' if not demanda.validacao }}> Pendente</option>
+    </select><br>
+      <input type="submit" name="Atualizar">
+    </form> 
+{% endblock %}

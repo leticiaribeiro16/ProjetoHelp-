@@ -1,0 +1,13 @@
+{% extends 'header.html' %}
+  {% block titulo %}
+    Demanda
+  {% endblock %}
+  {% block container %}
+  <h1>
+    Você tem certeza que deseja excluir a demanda {{demanda.materia}}?
+  </h1>
+    <form method='post' action='/demanda/delete/{{demanda.id}}'>
+      <input type="submit" value="Deletar">
+      <a href="/demanda/recovery">Cancelar</a>
+    </form>
+{% endblock %}

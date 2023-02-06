@@ -1,0 +1,30 @@
+{% extends 'header.html' %}
+  {% block titulo %}
+    Demanda
+  {% endblock %}
+  {% block container %}
+    <form action="/demanda/create" method="POST">
+      Matéria: <input type="text" name="materia" required><br/>
+      Observações: <input type="text" name="observacoes" required><br/>
+      Requisitos: <input type="text" name="requisitos" required><br/>
+      Conteúdo: <input type="text" name="conteudo" required><br />
+      Orientadores: <input type="text" name="orientadores" required><br />
+      Edital: <input type="text" name="id_edital" required><br />
+      Modalidade: <input type="text" name="modalidade" /><br />
+    {% if current_user.admin %}
+      Validação:
+  <select name="validacao">
+    <option value="True" {{ 'selected' if demanda.validacao }}> Aprovado</option>
+    <option value="False" {{ 'selected' if not demanda.validacao }}> Pendente</option>
+  </select><br>
+    {% endif %}
+      Vagas Matutino: <input type="number" name='vagas_matutino' required/><br />
+      Vagas Vespertino: <input type="number" name='vagas_vespertino' required/><br />
+      Vagas Noturno: <input type="number" name='vagas_noturno' required /><br />
+      Vagas Flexível: <input type="number" name='vagas_flexivel' required/><br />
+    {% if current_user.admin %}
+      Bolsas: <input type="number" name='bolsas' /><br />
+    {% endif %}
+      <input type="submit" name="enviar">
+    </form> 
+{% endblock %}

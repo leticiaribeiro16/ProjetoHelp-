@@ -1,0 +1,33 @@
+{% extends 'header.html' %}
+{% block container %}
+<a href="/edital/create" class="btn btn-primary" style="background-color: #43B6DB !important">+ Adicionar Edital</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Título</th>
+        <th scope="col">Observações</th>
+        <th scope="col">Link Edital</th>
+        {% if current_user.admin %}
+        <th scope="col">Ações</th>
+        {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in edital %}
+        <tr>
+          <th scope="row">{{e.id}}</th>
+          <td>{{e.titulo}}</td>
+          <td>{{e.paragrafo}}</td>
+          <td>{{e.link}}</td>
+        {% if current_user.admin %}
+          <td>
+            <a href="/edital/update/{{e.id}}">Editar</a>
+				    <a href="/edital/delete/{{e.id}}">Excluir</a>
+          </td>
+        {% endif %}
+        </tr>
+	    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

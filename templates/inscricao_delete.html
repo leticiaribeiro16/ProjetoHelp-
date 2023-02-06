@@ -1,0 +1,8 @@
+{% extends 'header.html' %}
+{% block container %}
+  Você tem certeza que deseja excluir a inscrição - {{inscricao.id_usuario}}?
+  <form method='post' action='/inscricao/delete/{{inscricao.id}}'>
+    <input type="submit" value="Sim">
+  </form>
+  <a href="/inscricao/recovery">Cancelar</a>
+{% endblock%}

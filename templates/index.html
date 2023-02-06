@@ -1,5 +1,20 @@
 {% extends 'header.html' %}
 {% block container %}
-        <li><a href="{{url_for('usuarios.logoff')}}" class="btn btn-danger" id="button-sair">Sair ({{current_user.nome}})</a></li>
 <h1>Seja bem-vindo, {{current_user.nome}}</h1>
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  {% for ed in edital %}
+  <div class="card-body">
+    <h5 class="card-title">{{ed.titulo}} titulo</h5>
+    <p class="card-text">{{ed.paragrafo}}</p>
+    <a href="#" class="btn btn-primary">{{ed.link}}</a>
+  </div>
+    {% endfor %}
+</div>
+{% if current_user.professor %}
+<h1>Professor</h1>
+{% endif %}
+{% if current_user.admin %}
+<h1>Comissão</h1>
+{% endif %}
 {% endblock %}
