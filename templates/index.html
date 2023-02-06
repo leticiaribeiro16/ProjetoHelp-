@@ -1,0 +1,5 @@
+{% extends 'header.html' %}
+{% block container %}
+        <li><a href="{{url_for('usuarios.logoff')}}" class="btn btn-danger" id="button-sair">Sair ({{current_user.nome}})</a></li>
+<h1>Seja bem-vindo, {{current_user.nome}}</h1>
+{% endblock %}

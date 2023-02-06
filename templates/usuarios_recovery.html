@@ -1,0 +1,30 @@
+{% extends 'header.html' %}
+{% block container %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Matrícula</th>
+        <th scope="col">Senha</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in usuarios %}
+        <tr>
+          <th scope="row">{{u.id}}</th>
+          <td>{{u.nome}}</td>
+          <td>{{u.email}}</td>
+          <td>{{u.matricula}}</td>
+          <td>{{u.senha}}</td>
+          <td>
+            <a href="/usuarios/update/{{u.id}}">Editar</a>
+				    <a href="/usuarios/delete/{{u.id}}">Excluir</a>
+          </td>
+        </tr>
+	    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
