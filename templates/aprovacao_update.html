@@ -1,15 +1,23 @@
 {% extends 'header.html' %}
-
+  {% block titulo %}
+    Aprovação
+  {% endblock %}
 {% block container %}
-<form action="/aprovacao/update/{{resultado.id}}" method="POST">
-  Matrícula do usuário: <input type="text" name="id_usuario" value="{{resultado.id_usuario}}"><br/>
-  Nota: <input type="text" name="nota" value="{{resultado.nota}}"><br/>
-  Aprovado: 
-  <select name="aprovacao">
-    <option value="True" {{ 'selected' if resultado.aprovacao }}> Aprovado</option>
-    <option value="False" {{ 'selected' if not resultado.aprovacao }}> Reprovado</option>
-  </select><br>
-  <input type="submit" name="Editar">
-  <input type="reset" name="Limpar">
-</form>
+<div class="main-create">
+  <div class="form-create">
+    <form action="/aprovacao/update/{{resultado.id}}" method="POST" class="form-create-create">
+      Matrícula do usuário: <input type="text" name="id_usuario" value="{{resultado.id_usuario}}"><br/>
+      Nota: <input type="text" name="nota" value="{{resultado.nota}}"><br/>
+      Aprovado: 
+      <select name="aprovacao">
+        <option value="True" {{ 'selected' if resultado.aprovacao }}> Aprovado</option>
+        <option value="False" {{ 'selected' if not resultado.aprovacao }}> Reprovado</option>
+      </select><br>
+      <input type="submit" name="Editar" class="btn btn-success">
+    </form>
+  </div>
+  <div class="img-create">
+    <img src="/static/assets/study.svg" class="image pic-create" alt="" height="500vh"/>
+  </div>
+</div>
 {% endblock %}

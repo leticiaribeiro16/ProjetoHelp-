@@ -1,7 +1,252 @@
+:root{
+  --color-principal: #43B6DB;
+  --color-secundary: #A1DBED;
+  --color-gray: #171717;
+  --color-black: #263238;
+  --color-gray-secundary: #404A50;
+}
 .nav-link{
   color: white !important;
   transition: 0.5s ease-in-out;
 }
 .nav-link:hover{
-  color: #A1DBED !important;
+  color: var(--color-secundary) !important;
+}
+.btn-primary{
+  background-color: var(--color-secundary) !important;
+}
+.table{
+  margin-top: 1rem;
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+.title-recovery{
+  font-weight: 400;
+  color: var(--color-gray);
+  font-size: 2rem;
+}
+.btn-adc{
+  float: left;
+  padding: 0.8rem;
+  background:  var(--color-secundary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.8rem;
+  margin: 0.5rem;
+  border: none;
+}
+/* FORMULÁRIO CREATE E UPDATE */
+.main-create{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-create{
+  flex-direction: column;
+  background: var(--color-black);
+  max-width: 45%;
+  width: auto;
+  height: auto;
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  float: right;
+  margin: 2rem;
+}
+.img-create{
+ float: left; 
+}
+.form-create-create{
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    flex-direction: column;
+}
+.form-create-create input[type="text"], 
+.form-create-create input[type="email"], 
+.form-create-create input[type="number"],
+.form-create-create input[type="password"],
+select{
+  padding: 0.3rem;
+  color: #fff;
+  background: var(--color-gray-secundary);
+  border-radius: 0.8rem;
+  border: none;
+  width: 15rem;
+  margin: 1rem;
+}
+.form-create-create input[type="submit"]{
+  background-color: var(--color-principal);
+  padding: 0.3rem;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 0.8rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.form-create-create input[type="submit"]:hover{
+  background-color: var(--color-secundary);
+}
+/* FORMULÁRIO DELETE */
+.form-delete{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 3rem;
+}
+.delete{
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem;
+  background: #ff1414;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer; 
+  font-size: 15px;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+  margin: 0.5rem;
+}
+.submit-del, .delete{
+  width: 8rem;
+}
+.submit-del{
+  background: var(--color-principal);
+}
+.submit-del:hover{
+  background: var(--color-secundary);
+}
+.group-buttons-del{
+  display: inline-block;
+}
+.text-del{
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--color-black);
+}
+/* TELA INICIAL */
+.title-index{
+  font-weight: 400;
+}
+span{
+  font-weight: 700;
+}
+.edital-card{
+  width: 403.46px;
+  height: 80.4px;
+  background: #FFFFFF;
+  box-shadow: 6.46109px 4.30739px 11.4864px rgba(0, 0, 0, 0.06);
+  border-radius: 11.4864px;
+  color: var(--color-black);
+  margin: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+ul, li{
+  list-style-type: none;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14.358px;
+  line-height: 170%;
+  text-align: left;
+  text-transform: uppercase;
+  color: #626262;
+}
+.card-text{
+  padding: 0.8rem;
+}
+.group-cards{
+  display: inline-block;
+  width: 50%;
+  height: auto;
+}
+.group-cards a{
+  text-decoration: none;
+}
+.main-container{
+  margin: 2rem;
+}
+.right-container{
+  width: 50%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  float: right;
+}
+.card-inscricao{
+  max-width: 40rem;
+  height: auto;
+  padding: 1rem;
+  background: #FFFFFF;
+  box-shadow: 6.46109px 4.30739px 11.4864px rgba(0, 0, 0, 0.06);
+  border-radius: 11.4864px;
+  margin: 1.5rem;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title-inscricao{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 55px;
+  color: #1F1F1F;
+  text-align: center;
+}
+.p-inscricao{
+  text-decoration: none;
+  width: 15rem;
+  height: 3.5rem;
+  background: #455A64;
+  border-radius: 10px;
+  line-height: 55px;
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16.713px;
+  line-height: 25px;
+  color: #FFFFFF;
+  text-align: center;
+  cursor: pointer; 
+  border:none;
+  transition: 0.5 ease-in-out;
+}
+.p-inscricao:hover{
+  background: #5a717c;
+}
+/* FOOTER */
+footer{
+  background: #43B6DB;
+  font-weight: 400;
+  font-size: 15px;
+  color: #FFFFFF;
+  padding: 64px;
+  text-align: center;
+  width: 100%;
+  height: 15rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

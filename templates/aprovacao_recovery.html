@@ -1,8 +1,16 @@
 {% extends 'header.html' %}
+  {% block titulo %}
+    Aprovação
+  {% endblock %}
 {% block container %}
-<a href="/aprovacao/create" class="btn btn-primary" style="background-color: #43B6DB !important">+ Adicionar Resultado</a>
+<div id="recovery">
+  <div class="nav">
+<h1 class="title-recovery">Resultados</h1>
+<a href="/aprovacao/create" class="btn btn-primary btn-adc" style="background-color: #43B6DB !important">+ Adicionar Resultado</a>
+  </div>
+</div>
   <table class="table">
-    <thead>
+    <thead style="background-color: #43B6DB !important; color: white;">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nome do Aluno</th>
@@ -24,8 +32,8 @@
           <td>{{a.aprovacao}}</td>
         {% if current_user.admin %}
           <td>
-            <a href="/aprovacao/update/{{a.id}}">Editar</a>
-				    <a href="/aprovacao/delete/{{a.id}}">Excluir</a>
+            <a href="/aprovacao/update/{{a.id}}" class="btn btn-info">Editar</a>
+				    <a href="/aprovacao/delete/{{a.id}}" class="btn btn-danger">Excluir</a>
           </td>
         {% endif %}
         </tr>

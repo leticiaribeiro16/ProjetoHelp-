@@ -3,11 +3,14 @@
     Demanda
   {% endblock %}
   {% block container %}
-  <h1>
-    Você tem certeza que deseja excluir a demanda {{demanda.materia}}?
-  </h1>
-    <form method='post' action='/demanda/delete/{{demanda.id}}'>
-      <input type="submit" value="Deletar">
-      <a href="/demanda/recovery">Cancelar</a>
-    </form>
+<div class="form-delete">
+  <h1 class="text-del">Você tem certeza que deseja excluir a demanda {{demanda.materia}}?</h1>
+  <form method='post' action='/demanda/delete/{{demanda.id}}'>
+    <div class="group-buttons-del">
+      <input type="submit" value="Deletar" class="delete submit-del">
+      <a href="/demanda/recovery" class="delete">Cancelar</a>
+    </div>
+  </form>
+  <img src="/static/assets/cleanup.svg" alt="..." height="500vh">
+</div>
 {% endblock %}

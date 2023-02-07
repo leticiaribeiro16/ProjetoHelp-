@@ -57,4 +57,8 @@ def login():
 def acesso_negado(e):
     return render_template('error_401.html'), 404
 
+@app.errorhandler(404)
+def error_404(e):
+    return render_template('error_404.html'), 404
+
 app.run(host='0.0.0.0', port=81)

@@ -67,7 +67,7 @@ def delete(id):
     return redirect('/login')
     
   if id==0:
-    return 'É preciso definir um usuário para ser excluído'
+    return 'É preciso definir um edital para ser excluído'
     return redirect(url_for('.recovery'))
 
   if request.method == 'GET':

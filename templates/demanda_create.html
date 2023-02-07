@@ -3,14 +3,16 @@
     Demanda
   {% endblock %}
   {% block container %}
-    <form action="/demanda/create" method="POST">
-      Matéria: <input type="text" name="materia" required><br/>
-      Observações: <input type="text" name="observacoes" required><br/>
-      Requisitos: <input type="text" name="requisitos" required><br/>
-      Conteúdo: <input type="text" name="conteudo" required><br />
-      Orientadores: <input type="text" name="orientadores" required><br />
-      Edital: <input type="text" name="id_edital" required><br />
-      Modalidade: <input type="text" name="modalidade" /><br />
+<div class="main-create">
+  <div class="form-create">
+    <form action="/demanda/create" method="POST" class="form-create-create">
+      Matéria: <input type="text" name="materia" required placeholder="Digite a disciplina"><br/>
+      Observações: <input type="text" name="observacoes" required placeholder="Digite as observações necessárias"><br/>
+      Requisitos: <input type="text" name="requisitos" required placeholder="Digite os requisitos para prova"><br/>
+      Conteúdo: <input type="text" name="conteudo" required placeholder="Digie o conteúdo para prova"><br />
+      Orientadores: <input type="text" name="orientadores" required placeholder="Digite os orientadores"><br />
+      Edital: <input type="text" name="id_edital" required placeholder="Ex.: 1, o id ao lado do edital"><br />
+      Modalidade: <input type="text" name="modalidade" required placeholder="Digite qual a forma da avaliação"/><br />
     {% if current_user.admin %}
       Validação:
   <select name="validacao">
@@ -18,10 +20,12 @@
     <option value="False" {{ 'selected' if not demanda.validacao }}> Pendente</option>
   </select><br>
     {% endif %}
-      Vagas Matutino: <input type="number" name='vagas_matutino' required/><br />
-      Vagas Vespertino: <input type="number" name='vagas_vespertino' required/><br />
-      Vagas Noturno: <input type="number" name='vagas_noturno' required /><br />
-      Vagas Flexível: <input type="number" name='vagas_flexivel' required/><br />
-      <input type="submit" name="enviar">
+      Vagas Matutino: <input type="number" name='vagas_matutino' required placeholder="Digite as vagas necessárias"/><br />
+      Vagas Vespertino: <input type="number" name='vagas_vespertino' required placeholder="Digite as vagas necessárias"/><br />
+      Vagas Noturno: <input type="number" name='vagas_noturno' required placeholder="Digite as vagas necessárias"/><br />
+      Vagas Flexível: <input type="number" name='vagas_flexivel' required placeholder="Digite as vagas necessárias"/><br />
+      <input type="submit" name="enviar" class="btn btn-success">
     </form> 
+  </div>
+</div>
 {% endblock %}

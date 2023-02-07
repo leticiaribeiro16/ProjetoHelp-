@@ -3,21 +3,45 @@
     Home
   {% endblock %}
 {% block container %}
-<h1>Seja bem-vindo, {{current_user.nome}}</h1>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="main-container">
+<h1 class="title-index">Olá! Seja bem-vindo, <span>{{current_user.nome}}</span></h1>
+  <ul class="group-cards">
   {% for ed in edital %}
-  <div class="card-body">
-    <h5 class="card-title">{{ed.titulo}} titulo</h5>
-    <p class="card-text">{{ed.paragrafo}}</p>
-    <a href="#" class="btn btn-primary">{{ed.link}}</a>
+    <a href="{{ed.link}}">
+    <li class='edital-card'>
+      <p class="card-text">{{ed.id}} - {{ed.titulo}} | {{ed.paragrafo}}</p>
+    </li>
+    </a>
+  {% endfor %}
+  </ul>
+  <div class="right-container">
+      <!-- CARROSSEL -->
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/static/assets/frame1.svg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/assets/frame2.svg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/assets/frame3.svg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- FINAL CARROSSEL -->
+      <div class="card-inscricao">
+        <div class="title-inscricao">Gostou? Inscreva-se no Processo Seletivo!</div>
+        <button class="p-inscricao"><a href="/inscricao/create" class="p-inscricao">INSCREVA-SE AQUI!</a></button>
+      </div>
   </div>
-    {% endfor %}
 </div>
-{% if current_user.professor %}
-<h1>Professor</h1>
-{% endif %}
-{% if current_user.admin %}
-<h1>Comissão</h1>
-{% endif %}
 {% endblock %}

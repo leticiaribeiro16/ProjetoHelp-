@@ -20,7 +20,8 @@ def create():
     i = Inscricao(id_usuario, id_edital, turno)
     db.session.add(i) 
     db.session.commit()
-    return redirect(url_for('.recovery'))
+    return redirect('/usuarios/dashboard')
+    # return redirect(url_for('.recovery'))
 
 #LISTAR INSCRIÇÕES
 @bp_inscricao.route('/recovery')

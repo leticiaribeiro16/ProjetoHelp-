@@ -1,8 +1,16 @@
 {% extends 'header.html' %}
+  {% block titulo %}
+    Edital
+  {% endblock %}
 {% block container %}
-  Você tem certeza que deseja excluir o edital {{edital.titulo}}?
+<div class="form-delete">
+  <h1 class="text-del"> Você tem certeza que deseja excluir o edital {{edital.titulo}}?</h1>
   <form method='post' action='/edital/delete/{{edital.id}}'>
-    <input type="submit" value="Sim">
+    <div class="group-buttons-del">
+      <input type="submit" value="Deletar" class="delete submit-del">
+      <a href="/edital/recovery" class="delete">Cancelar</a>
+    </div>
   </form>
-  <a href="/edital/recovery">Cancelar</a>
+  <img src="/static/assets/cleanup.svg" alt="..." height="500vh">
+</div>
 {% endblock%}

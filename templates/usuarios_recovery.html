@@ -1,7 +1,15 @@
 {% extends 'header.html' %}
+  {% block titulo %}
+    Usuários
+  {% endblock %}
 {% block container %}
+<div id="recovery">
+  <div class="nav">
+    <h1 class="title-recovery">Usuários</h1>
+  </div>
+</div>
   <table class="table">
-    <thead>
+    <thead style="background-color: #43B6DB !important; color: white;">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nome</th>
@@ -20,8 +28,8 @@
           <td>{{u.matricula}}</td>
           <td>{{u.senha}}</td>
           <td>
-            <a href="/usuarios/update/{{u.id}}">Editar</a>
-				    <a href="/usuarios/delete/{{u.id}}">Excluir</a>
+            <a href="/usuarios/update/{{u.id}}" class="btn btn-info">Editar</a>
+				    <a href="/usuarios/delete/{{u.id}}" class="btn btn-danger">Excluir</a>
           </td>
         </tr>
 	    {% endfor %}

@@ -3,14 +3,21 @@
     Aprovação
   {% endblock %}
   {% block container %}
-    <form action="/aprovacao/create" method="POST">
-      Matrícula do Aluno: <input type="text" name="id_usuario" required><br/>
-      Nota do Aluno: <input type="text" name="nota" required><br/>
+<div class="main-create">
+  <div class="form-create">
+    <form action="/aprovacao/create" method="POST" class="form-create-create">
+      Matrícula do Aluno: <input type="text" name="id_usuario" required placeholder="Digite a matrícula do aluno"><br/>
+      Nota do Aluno: <input type="text" name="nota" required placeholder="Digite a nota obtida pelo aluno"><br/>
       Aprovado:
   <select name="aprovacao">
     <option value="True" {{ 'selected' if aprovacao.aprovacao }}> Aprovado</option>
     <option value="False" {{ 'selected' if not aprovacao.aprovacao }}> Reprovado</option>
   </select><br>
-      <input type="submit" name="enviar">
-    </form> 
+      <input type="submit" name="enviar" class="btn btn-success">
+    </form>  
+  </div>
+  <div class="img-create">
+    <img src="/static/assets/study.svg" class="image pic-create" alt="" height="500vh"/>
+  </div>
+</div>
 {% endblock %}

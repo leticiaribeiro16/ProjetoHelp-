@@ -1,12 +1,21 @@
 {% extends 'header.html' %}
+  {% block titulo %}
+    Edital
+  {% endblock %}
 {% block container %}
+<div class="main-create">
+  <div class="form-create">
+    <form action="/edital/create" method="POST" class="form-create-create">
+      Título: <input type="text" name="titulo" required placeholder="Digite o título do edital"><br/>
+      Parágrafo de Explicação: <input type="text" name="paragrafo" required placeholder="Digite um parágrafo curto"><br/>
+      Link do Edital: <input type="text" name="link" required placeholder="Insira o link do edital"><br/>
+      <input type="submit" name="Cadastrar" class="btn btn-success">
+    </form>
+  </div>
+  <div class="img-create">
+    <img src="/static/assets/study.svg" class="image pic-create" alt="" height="500vh"/>
+  </div>
+</div>
 
-<form action="/edital/create" method="POST">
-  Título: <input type="text" name="titulo"><br/>
-  Parágrafo de Explicação: <input type="text" name="paragrafo"><br/>
-  Link do Edital: <input type="text" name="link"><br/>
-  <input type="submit" name="Cadastrar">
-  <input type="reset" name="Limpar">
-</form>
 
 {% endblock %}

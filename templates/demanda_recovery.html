@@ -1,8 +1,16 @@
 {% extends 'header.html' %}
+  {% block titulo %}
+    Demanda
+  {% endblock %}
 {% block container %}
-<a href="/demanda/create" class="btn btn-primary" style="background-color: #43B6DB !important">+ Adicionar Demanda</a>
-  <table class="table">
-    <thead>
+<div id="recovery">
+  <div class="nav">
+    <h1 class="title-recovery">Demanda</h1>
+      <a href="/demanda/create" class="btn btn-primary btn-adc" style="background-color: #43B6DB !important">+ Adicionar Demanda</a>
+  </div>
+</div>
+  <table class="table" >
+    <thead style="background-color: #43B6DB !important; color: white;">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Matéria</th>
@@ -46,8 +54,8 @@
         {% if current_user.admin %}
           <td>{{d.validacao}}</td>
           <td>
-            <a href="/demanda/update/{{d.id}}">Editar</a>
-				    <a href="/demanda/delete/{{d.id}}">Excluir</a>
+            <a href="/demanda/update/{{d.id}}" class="btn btn-info">Editar</a>
+				    <a href="/demanda/delete/{{d.id}}" class="btn btn-danger">Excluir</a>
           </td>
         {% endif %}
         </tr>

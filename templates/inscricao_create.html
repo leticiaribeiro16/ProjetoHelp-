@@ -1,12 +1,19 @@
 {% extends 'header.html' %}
   {% block titulo %}
-    Demanda
+    Inscrição
   {% endblock %}
   {% block container %}
-    <form action="/inscricao/create" method="POST">
-      Matrícula: <input type="text" name="id_usuario" required><br/>
-      Coloque o ID do Edital: <input type="text" name="id_edital" required><br/>
-      Turno: <input type="text" name="turno" required><br/>
-      <input type="submit" name="enviar">
-    </form> 
+<div class="main-create">
+  <div class="form-create">
+    <form action="/inscricao/create" method="POST" class="form-create-create">
+      Matrícula: <input type="text" name="id_usuario" required placeholder="Digite sua matrícula"><br/>
+      Coloque o ID do Edital: <input type="text" name="id_edital" required placeholder="Ex.: 1, o id está ao lado do edital"><br/>
+      Turno: <input type="text" name="turno" required placeholder="Digite o turno desejado"><br/>
+      <input type="submit" name="enviar" class="btn btn-success">
+    </form>  
+  </div>
+  <div class="img-create">
+    <img src="/static/assets/study.svg" class="image pic-create" alt="" height="500vh"/>
+  </div>
+</div>
 {% endblock %}

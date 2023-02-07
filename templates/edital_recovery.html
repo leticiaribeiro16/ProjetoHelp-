@@ -1,8 +1,16 @@
 {% extends 'header.html' %}
+  {% block titulo %}
+    Edital
+  {% endblock %}
 {% block container %}
-<a href="/edital/create" class="btn btn-primary" style="background-color: #43B6DB !important">+ Adicionar Edital</a>
+<div id="recovery">
+  <div class="nav">
+    <h1 class="title-recovery">Edital</h1>
+    <a href="/edital/create" class="btn btn-primary btn-adc" style="background-color: #43B6DB !important">+ Adicionar Edital</a>
+  </div>
+</div>
   <table class="table">
-    <thead>
+    <thead style="background-color: #43B6DB !important; color: white;">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Título</th>
@@ -22,8 +30,8 @@
           <td>{{e.link}}</td>
         {% if current_user.admin %}
           <td>
-            <a href="/edital/update/{{e.id}}">Editar</a>
-				    <a href="/edital/delete/{{e.id}}">Excluir</a>
+            <a href="/edital/update/{{e.id}}" class="btn btn-info">Editar</a>
+				    <a href="/edital/delete/{{e.id}}" class="btn btn-danger">Excluir</a>
           </td>
         {% endif %}
         </tr>

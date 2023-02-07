@@ -1,8 +1,16 @@
 {% extends 'header.html' %}
+  {% block titulo %}
+    Aprovação
+  {% endblock %}
 {% block container %}
-  Você tem certeza que deseja excluir o resultado da matrícula {{resultado.id_usuario}}?
+<div class="form-delete">
+  <h1 class="text-del">  Você tem certeza que deseja excluir a avaliação, da matrícula {{resultado.id_usuario}}?</h1>
   <form method='post' action='/aprovacao/delete/{{resultado.id}}'>
-    <input type="submit" value="Sim">
+  <div class="group-buttons-del">
+    <input type="submit" value="Deletar" class="delete submit-del">
+  <a href="/aprovacao/recovery" class="delete">Cancelar</a>
+  </div>
   </form>
-  <a href="/aprovacao/recovery">Cancelar</a>
+  <img src="/static/assets/cleanup.svg" alt="..." height="500vh">
+</div>
 {% endblock%}

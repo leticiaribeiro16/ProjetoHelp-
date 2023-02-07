@@ -3,7 +3,9 @@
     Demanda
   {% endblock %}
   {% block container %}
-    <form action="/demanda/update/{{demanda.id}}" method="POST">
+<div class="main-create">
+  <div class="form-create">
+    <form action="/demanda/update/{{demanda.id}}" method="POST" class="form-create-create">
       Matéria: <input type="text" name="materia" value="{{demanda.materia}}"><br/>
       Observações: <input type="text" name="observacoes" value="{{demanda.observacoes}}"><br/>
       Requisitos: <input type="text" name="requisitos" value="{{demanda.requisitos}}"><br/>
@@ -21,6 +23,8 @@
       <option value="True" {{ 'selected' if demanda.validacao }}> Aprovado</option>
       <option value="False" {{ 'selected' if not demanda.validacao }}> Pendente</option>
     </select><br>
-      <input type="submit" name="Atualizar">
+      <input type="submit" name="Atualizar" class="btn btn-success">
     </form> 
+  </div>
+</div>
 {% endblock %}

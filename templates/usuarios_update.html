@@ -1,22 +1,30 @@
 {% extends 'header.html' %}
-
+  {% block titulo %}
+    Usuários
+  {% endblock %}
 {% block container %}
-<form action="/usuarios/update/{{usuario.id}}" method="POST">
-  Nome: <input type="text" name="nome" value="{{usuario.nome}}"><br/>
-  E-mail: <input type="email" name="email" value="{{usuario.email}}"><br/>
-  Matrícula: <input type="text" name="matricula" value="{{usuario.matricula}}"><br/>
-  Senha: <input type="password" name="senha" value="{{usuario.senha}}"><br/>
-  Membro Comissão: 
-  <select name="admin">
-    <option value="True" {{ 'selected' if usuario.admin }}> Sim</option>
-    <option value="False" {{ 'selected' if not usuario.admin }}> Não</option>
-  </select><br>
-  Professor: 
-  <select name="professor">
-    <option value="True" {{ 'selected' if usuario.professor }}> Sim</option>
-    <option value="False" {{ 'selected' if not usuario.professor }}> Não</option>
-  </select><br>
-  <input type="submit" name="Editar">
-  <input type="reset" name="Limpar">
-</form>
+<div class="main-create">
+  <div class="form-create">
+    <form action="/usuarios/update/{{usuario.id}}" method="POST" class="form-create-create">
+      Nome: <input type="text" name="nome" value="{{usuario.nome}}"><br/>
+      E-mail: <input type="email" name="email" value="{{usuario.email}}"><br/>
+      Matrícula: <input type="text" name="matricula" value="{{usuario.matricula}}"><br/>
+      Senha: <input type="password" name="senha" value="{{usuario.senha}}"><br/>
+      Membro Comissão: 
+      <select name="admin">
+        <option value="True" {{ 'selected' if usuario.admin }}> Sim</option>
+        <option value="False" {{ 'selected' if not usuario.admin }}> Não</option>
+      </select><br>
+      Professor: 
+      <select name="professor">
+        <option value="True" {{ 'selected' if usuario.professor }}> Sim</option>
+        <option value="False" {{ 'selected' if not usuario.professor }}> Não</option>
+      </select><br>
+      <input type="submit" name="Editar" class="btn btn-success">
+    </form>
+  </div>
+  <div class="img-create">
+    <img src="/static/assets/study.svg" class="image pic-create" alt="" height="500vh"/>
+  </div>
+</div>
 {% endblock %}
