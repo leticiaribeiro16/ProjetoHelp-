@@ -5,7 +5,7 @@ from controllers.usuario import bp_usuarios
 from controllers.edital import bp_edital
 from controllers.demanda import bp_demanda
 from controllers.inscricao import bp_inscricao
-# from controllers.aprovacao import bp_aprovacao
+from controllers.aprovacao import bp_aprovacao
 from database.database import db, lm
 from flask_login import login_user, logout_user, login_required, current_user
 from database.models import Usuario
@@ -19,7 +19,7 @@ app.register_blueprint(bp_usuarios, url_prefix='/usuarios')
 app.register_blueprint(bp_edital, url_prefix='/edital')
 app.register_blueprint(bp_demanda, url_prefix='/demanda')
 app.register_blueprint(bp_inscricao, url_prefix='/inscricao')
-# app.register_blueprint(bp_aprovacao, url_prefix='/aprovacao')
+app.register_blueprint(bp_aprovacao, url_prefix='/aprovacao')
 
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'

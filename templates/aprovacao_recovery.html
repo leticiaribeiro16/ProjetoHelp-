@@ -1,0 +1,35 @@
+{% extends 'header.html' %}
+{% block container %}
+<a href="/aprovacao/create" class="btn btn-primary" style="background-color: #43B6DB !important">+ Adicionar Resultado</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome do Aluno</th>
+        <th scope="col">Matrícula do Aluno</th>
+        <th scope="col">Nota do Aluno</th>
+        <th scope="col">Aprovado</th>
+        {% if current_user.admin %}
+        <th scope="col">Ações</th>
+        {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in aprovacao %}
+        <tr>
+          <th scope="row">{{a.id}}</th>
+          <td>{{a.usuario.nome}}</td>
+          <td>{{a.usuario.matricula}}</td>
+          <td>{{a.nota}}</td>
+          <td>{{a.aprovacao}}</td>
+        {% if current_user.admin %}
+          <td>
+            <a href="/aprovacao/update/{{a.id}}">Editar</a>
+				    <a href="/aprovacao/delete/{{a.id}}">Excluir</a>
+          </td>
+        {% endif %}
+        </tr>
+	    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

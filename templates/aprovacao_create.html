@@ -1,0 +1,16 @@
+{% extends 'header.html' %}
+  {% block titulo %}
+    Aprovação
+  {% endblock %}
+  {% block container %}
+    <form action="/aprovacao/create" method="POST">
+      Matrícula do Aluno: <input type="text" name="id_usuario" required><br/>
+      Nota do Aluno: <input type="text" name="nota" required><br/>
+      Aprovado:
+  <select name="aprovacao">
+    <option value="True" {{ 'selected' if aprovacao.aprovacao }}> Aprovado</option>
+    <option value="False" {{ 'selected' if not aprovacao.aprovacao }}> Reprovado</option>
+  </select><br>
+      <input type="submit" name="enviar">
+    </form> 
+{% endblock %}

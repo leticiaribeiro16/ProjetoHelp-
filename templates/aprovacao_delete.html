@@ -1,0 +1,8 @@
+{% extends 'header.html' %}
+{% block container %}
+  Você tem certeza que deseja excluir o resultado da matrícula {{resultado.id_usuario}}?
+  <form method='post' action='/aprovacao/delete/{{resultado.id}}'>
+    <input type="submit" value="Sim">
+  </form>
+  <a href="/aprovacao/recovery">Cancelar</a>
+{% endblock%}

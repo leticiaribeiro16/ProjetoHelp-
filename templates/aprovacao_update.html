@@ -1,0 +1,15 @@
+{% extends 'header.html' %}
+
+{% block container %}
+<form action="/aprovacao/update/{{resultado.id}}" method="POST">
+  Matrícula do usuário: <input type="text" name="id_usuario" value="{{resultado.id_usuario}}"><br/>
+  Nota: <input type="text" name="nota" value="{{resultado.nota}}"><br/>
+  Aprovado: 
+  <select name="aprovacao">
+    <option value="True" {{ 'selected' if resultado.aprovacao }}> Aprovado</option>
+    <option value="False" {{ 'selected' if not resultado.aprovacao }}> Reprovado</option>
+  </select><br>
+  <input type="submit" name="Editar">
+  <input type="reset" name="Limpar">
+</form>
+{% endblock %}
